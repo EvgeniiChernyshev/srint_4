@@ -23,9 +23,10 @@ public class TestScooterOrder {
     private String rent;
     private String colour;
     private String comment;
+    private String buttonType;
 
     public TestScooterOrder(String name, String surname, String address, String metro,
-                             String phone, String rent, String deliveryDate, String colour, String comment) {
+                             String phone, String rent, String deliveryDate, String colour, String comment, String buttonType) {
         this.name = name;
         this.surname = surname;
         this.address = address;
@@ -35,6 +36,7 @@ public class TestScooterOrder {
         this.rent = rent;
         this.colour = colour;
         this.comment = comment;
+        this.buttonType = buttonType;
 
     }
 
@@ -42,8 +44,8 @@ public class TestScooterOrder {
     public static List<Object[]> testData() {
         return Arrays.asList(new Object[][] {
                 {"Иван", "Иванов", " Проспект ленина 30", "Сокольники", "+79000000000", "19.09.2025", "сутки", "чёрный жемчуг",
-                        "комментарий для курьера"},
-                {"Мария", "Петрова", "улица Щербакова 12", "Чистые пруды", "+79053334422","25.10.2024", "четверо суток","серая безысходность"},
+                        "комментарий для курьера", "top"},
+                {"Мария", "Петрова", "улица Щербакова 12", "Чистые пруды", "+79053334422","25.10.2024", "четверо суток","серая безысходность", "комментарий для курьера", "middle"},
 
         });
     }
@@ -51,7 +53,7 @@ public class TestScooterOrder {
     public void testScooterOrder() {
         driver.get("https://qa-scooter.praktikum-services.ru/");
         OrderPage orderPage = new OrderPage(driver);
-        orderPage.makeOrder(name, surname, address, metro, phone,  deliveryDate, rent, colour, comment);
+        orderPage.makeOrder(name, surname, address, metro, phone,  deliveryDate, rent, colour, comment, buttonType);
     }
 
     @After

@@ -61,6 +61,9 @@ public class MainPage {
 
     }
 
+    public By getAnswerLocator(String questionText) {
+        return By.xpath("//div[@class='accordion__item' and contains(text(),'" + questionText + "')]/following-sibling::div");
+    }
 
     public void clickCloseCookiesWindowUsingActions() {
         WebElement element = driver.findElement(conferCookieButton);

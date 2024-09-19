@@ -53,9 +53,7 @@ public class TestIsVisibleTextOnMainPage {
         for (WebElement question : questions) {
             if (question.getText().equals(questionText)) {
                 question.click();
-                WebElement answer = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                        By.xpath("//div[@class='accordion__item' and contains(text(),'" + questionText + "')]/following-sibling::div"))
-                );
+                WebElement answer = wait.until(ExpectedConditions.visibilityOfElementLocated(mainPage.getAnswerLocator(questionText)));
                 Assert.assertEquals(expectedAnswer, answer.getText());
                 break;
             }

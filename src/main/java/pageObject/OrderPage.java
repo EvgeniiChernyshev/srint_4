@@ -71,11 +71,15 @@ public class OrderPage {
 
 
     public void makeOrder(String name, String surname, String address, String nameMetro, String phone, String rent,
-                          String orderDate, String colour, String comment) {
+                          String orderDate, String colour, String comment, String buttonType) {
         //принимаем куки
         clickElement(conferCookieButton);
         //нажимаем на верхнюю кнопку заказать
-        clickElement(orderButton);
+        if (buttonType.equals("top")) {
+            clickElement(topOrderButton);
+        } else if (buttonType.equals("middle")) {
+            clickElement(middleOrderButton);
+        }
         //вводим имя
         input(nameField, name);
         //вводим фамилию
