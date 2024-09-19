@@ -59,7 +59,7 @@ public class OrderPage {
                           String orderDate, String colour, String comment, String buttonType) {
         //принимаем куки
         clickElement(conferCookieButton);
-        //нажимаем на заказать
+        //нажимаем на кнопку заказать
         if (buttonType.equals("top")) {
             clickElement(topOrderButton);
         } else if (buttonType.equals("middle")) {
